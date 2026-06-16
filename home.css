@@ -10,7 +10,7 @@
             background-color: #f4f4f4;
         }
 
-        /* ==========================================================================
+    /* ==========================================================================
    Configuração da Faixa e Navbar Fixa (Sticky)
    ========================================================================== */
 .top-bar {
@@ -608,7 +608,7 @@ body {
     right: -5%;
     width: 500px;   /* Tamanho grande */
     height: 500px;
-    background-image: url('/imagens/logobranca.png'); /* Puxa a imagem do seu diretório */
+    background-image: url('logobranca.png'); /* Puxa a imagem do seu diretório */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.10;  /* Deixa extremamente sutil e transparente, sem atrapalhar a leitura */
