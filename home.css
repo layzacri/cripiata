@@ -221,7 +221,7 @@ body {
     padding: 60px 10%;
     
     /* IMAGEM DE FUNDO: Substitua o link abaixo pela foto que você quiser */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.85)), 
                       url('painel.JPG'); /* Puxa a imagem do meu diretório */
     
     background-size: cover;
