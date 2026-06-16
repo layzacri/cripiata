@@ -222,7 +222,7 @@ body {
     
     /* IMAGEM DE FUNDO: Substitua o link abaixo pela foto que você quiser */
     background-image: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.85)), 
-                      url('painel.JPG'); /* Puxa a imagem do meu diretório */
+                      url('DSC_0104'); /* Puxa a imagem do meu diretório */
     
     background-size: cover;
     background-position: center;
