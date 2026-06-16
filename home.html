@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRI Piatã</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+
+    <!-- Faixa colorida superior -->
+    <div class="top-bar">
+    <div class="bar-green"></div>
+    <div class="bar-yellow"></div>
+    <div class="bar-blue"></div>
+    <div class="bar-red"></div>
+</div>
+
+<nav class="navbar">
+    
+    <a href="#" class="nav-brand">
+        <img src="/imagens/logoprincipal.png" alt="Logo do Clube" class="brand-logo">
+        <div class="brand-text">
+            <h1>Clube de Relações Internacionais</h1>
+            <span>Escola Sesi Djalma Pessoa</span>
+        </div>
+    </a>
+
+    <button class="menu-toggle" aria-label="Abrir Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="nav-menu">
+        <li class="nav-item">
+            <a href="#" class="nav-link">O Clube <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#historia">Nossa História</a></li>
+                <li><a href="#diretoria">Diretoria</a></li>
+                <li><a href="#estatuto">Estatuto</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">Benefícios <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#atividades">Atividades</a></li>
+                <li><a href="#espacos">Nossos Espaços</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#contato" class="nav-link">Contato</a>
+        </li>
+        
+        <li class="nav-item mobile-only">
+            <button class="lang-switcher">BR PT</button>
+        </li>
+    </ul>
+
+    <button class="lang-switcher desktop-only">BR PT</button>
+
+</nav>
+
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Fecha o menu ao clicar em um link interno
+    document.querySelectorAll('.nav-link, .dropdown-menu li a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+</script>
+
+<!-- SEÇÃO HERO PRINCIPAL -->
+<header class="hero-section">
+    <div class="hero-container">
+        
+        <!-- Pequena data/tag no topo -->
+        <p class="hero-tagline">— 01 A 03 DE SETEMBRO, 2026</p>
+        
+        <!-- Título Principal (Use a tag <em> para o efeito em itálico dourado) -->
+        <h1 class="hero-title">
+            A Comemoração dos<br>
+            nossos 10 anos <br> <em>está chegando.</em>
+        </h1>
+        
+        <!-- Parágrafo de Descrição -->
+        <p class="hero-description">
+            Uma simulação diplomática de alto nível organizada pelo <strong>CRI SESI Djalma Pessoa</strong> 
+            para estudantes prontos para debater, negociar, liderar e transformar o mundo.
+        </p>
+        
+        <!-- Botões de Ação -->
+        <div class="hero-buttons">
+            <a href="#inscricoes" class="btn-primary">Inscrições Abertas →</a>
+            <a href="#informacoes" class="btn-secondary">Informações para Escolas</a>
+        </div>
+        
+        <!-- Rodapé da Seção Hero (Três Colunas) -->
+        <div class="hero-footer">
+            <div class="footer-column">
+                <span class="footer-label">EDIÇÃO</span>
+                <span class="footer-value">Vol. X · 2026</span>
+            </div>
+            <div class="footer-column">
+                <span class="footer-label">CIDADE SEDE</span>
+                <span class="footer-value">Salvador · Brasil</span>
+            </div>
+            <div class="footer-column">
+                <span class="footer-label">LOCAL</span>
+                <span class="footer-value">Sesi Piatã</span>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<!-- 1. SEÇÃO CARTA DE BOAS-VINDAS (Baseada na Captura bege) -->
+<section class="welcome-section">
+    <div class="welcome-container">
+        <div class="welcome-text">
+            <h2>MENSAGEM DA DIRETORIA E COORDENAÇÃO</h2>
+            <p class="highlight">Bem-vindo ao Clube de Relações Internacionais da Escola SESI Djalma Pessoa!</p>
+            <p>É com imensa honra que iniciamos as atividades do nosso clube. Este espaço foi projetado para ser um polo de simulações diplomáticas, debates acalorados 
+                e desenvolvimento de lideranças prontas para impactar o cenário global.</p>
+            <p>Nossos comitês oferecem desafios intelectuais onde estudantes assumem papéis de delegados, defendendo posicionamentos de nações e costurando soluções para crises históricas e humanitárias complexas.</p>
+            <p>Acompanhe nossos prazos e prepare-se para uma experiência acadêmica transformadora de alto nível.</p>
+            
+            <div class="welcome-signature">
+                <p>Atenciosamente,</p>
+                <strong>Secretariado CRI Piatã 2026</strong><br>
+                <span>Escola SESI Djalma Pessoa</span>
+            </div>
+        </div>
+        <div class="welcome-image-wrapper">
+            <!-- Substitua a URL abaixo pela foto oficial do Presidente ou da Diretoria -->
+            <img src="/imagens/IMG_5877.JPG" alt="Diretoria do Clube" class="welcome-photo">
+        </div>
+    </div>
+</section>
+
+<!-- 2. SEÇÃO CARROSSEL DE POSTS (BLOG) -->
+<section class="blog-section">
+    <div class="blog-header">
+        <h2>ÚLTIMAS NOVIDADES</h2>
+        <p>Fique por dentro das notícias, artigos e avisos do nosso clube</p>
+    </div>
+    
+    <div class="carousel-wrapper">
+        <div class="carousel-track">
+            
+            <!-- Post 1 -->
+            <article class="blog-card">
+                <img src="/imagens/crivoltou.png" alt="Post 1" class="card-img">
+                <div class="card-content">
+                    <span class="card-date">24 FEV, 2026</span>
+                    <h3>O CRI ESTÁ DE VOLTA!</h3>
+                    <p>Após o período de férias e a MiniMUN final de 2025, retornamos com tudo e convidamos 
+                        você a entrar nesse novo passo da nossa história 
+                        enquanto Clube de Relações Internacionais do SESI Djalma Pessoa....</p>
+                    <a href="#post1" class="card-link">Ler mais →</a>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="blog-card">
+                <img src="/imagens/Post Anuncio (1) (1).png" alt="Post 2" class="card-img">
+                <div class="card-content">
+                    <span class="card-date">02 JUN, 2026</span>
+                    <h3>I MiniMundo Sesi - Soy Loco por Ti, America</h3>
+                    <p>O continente americano se prepara para receber vozes que irão debater, 
+                        negociar e construir soluções para os desafios do presente e do futuro...</p>
+                    <a href="#post2" class="card-link">Ler mais →</a>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="blog-card">
+                <img src="/imagens/agenciadecomunic.png" alt="Post 3" class="card-img">
+                <div class="card-content">
+                    <span class="card-date">28 MAI, 2026</span>
+                    <h3>Como é uma Agência de Comunicação?</h3>
+                    <p>Em uma simulação, tudo acontece em tempo real e cada decisão, 
+                        debate ou crise precisa ser comunicada com precisão...</p>
+                    <a href="#post3" class="card-link">Ler mais →</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- 3. SEÇÃO FORMULÁRIO E LINKS (Baseada na Captura vinho) -->
+<section class="connect-section">
+    <div class="connect-container">
+        
+        <div class="connect-content-grid">
+            
+            <div class="connect-column saiba-mais-col">
+                <h3>SAIBA MAIS</h3>
+                <hr class="line-decor">
+                
+                <div class="link-item">
+                    <a href="#sobre" class="outline-btn">SOBRE O CRI PIATÃ</a>
+                    <p>Descubra nossa missão, nossos valores acadêmicos e nosso histórico de simulações.</p>
+                </div>
+                
+                <div class="link-item">
+                    <a href="#equipe" class="outline-btn">NOSSA DIRETORIA</a>
+                    <p>Conheça o secretariado executivo e os diretores de comitê desta edição.</p>
+                </div>
+                
+                <div class="link-item">
+                    <a href="#comites" class="outline-btn">COMITÊS ATIVOS</a>
+                    <p>Explore as temáticas debatidas e acesse os guias de estudos oficiais.</p>
+                </div>
+            </div>
+
+            <div class="vertical-divider"></div>
+
+            <div class="connect-column form-col">
+                <h3>FIQUE CONECTADO</h3>
+                <hr class="line-decor">
+                <p class="form-subtitle">Inscreva-se com seu e-mail para receber atualizações diretas do Clube.</p>
+                
+                <form action="https://formspree.io/f/xoqgpedz" method="POST" class="connect-form">
+                    <input type="text" name="first_name" placeholder="Nome" required>
+                    <input type="text" name="last_name" placeholder="Sobrenome" required>
+                    <input type="email" name="email" placeholder="Endereço de E-mail" required>
+                    <button type="submit" class="form-submit-btn">CADASTRAR</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 4. FOOTER COM MARCA D'ÁGUA DA LOGO (Baseado na Captura do rodapé preto) -->
+<footer class="main-footer">
+    <div class="footer-top">
+        <div class="footer-brand">
+            <!-- Use a logo redonda enviada (a logo principal) aqui -->
+            <img src="/imagens/logobranca.png" alt="Logo CRI Piatã" class="footer-logo">
+            <div class="footer-brand-text">
+                <h2>CRI Piatã</h2>
+                <span>CLUBE DE RELAÇÕES INTERNACIONAIS</span>
+            </div>
+        </div>
+        
+        <div class="footer-info">
+            <p>Uma iniciativa estudantil que leva a diplomacia e a liderança global aos alunos da Rede SESI de Ensino.</p>
+        </div>
+
+        <div class="footer-contact">
+            <h4>CONTATO</h4>
+            <a href="mailto:cripiatasite@gmail.com">cripiatasite@gmail.com</a>
+            <p>Salvador · Bahia</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 CRI PIATÃ. TODOS OS DIREITOS RESERVADOS.</p>
+        <p class="edition-tag">ESPECIAL 10 ANOS · VOL. XX</p>
+    </div>
+</footer>
+
+</body>
+</html>
