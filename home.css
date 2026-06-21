@@ -154,21 +154,25 @@ body {
     display: block; 
 }
 
-.lang-switcher {
-    border: 1px solid #888;
-    padding: 8px 15px;
+.btn-inscricao {
+    border: 1px solid #950b26; /* Vinho oficial */
+    color: #950b26;
+    padding: 10px 20px;
     font-size: 12px;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
     background: transparent;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
-.lang-switcher:hover { 
-    background-color: #142947; 
-    color: #fff; 
-    border-color: #142947; 
+.btn-inscricao:hover { 
+    background-color: #950b26; 
+    color: #ffffff; 
 }
 
 /* Botão do menu móvel */
@@ -582,17 +586,17 @@ body {
 }
 
 /* ==========================================================================
-   4. FOOTER PREMIUM COM MARCA D'ÁGUA
+   4. FOOTER PREMIUM REESTRUTURADO
    ========================================================================== */
 .main-footer {
-    background-color: #0b0c10; 
+    background-color: #0b0c10; /* Preto escuro profundo */
     color: #ffffff;
     padding: 60px 10% 30px 10%;
     position: relative;
     overflow: hidden;
 }
 
-/* Injeção sutil e gigante da sua logo no fundo */
+/* Marca d'água sutil ao fundo */
 .main-footer::before {
     content: "";
     position: absolute;
@@ -603,17 +607,19 @@ body {
     background-image: url('logobranca.png'); 
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.10;  
+    opacity: 0.08;  
     pointer-events: none; 
 }
 
+/* Grid superior alinhado e espaçado uniformemente */
 .footer-top {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    gap: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 40px;
     position: relative;
     z-index: 2;
@@ -622,7 +628,8 @@ body {
 .footer-brand { 
     display: flex; 
     align-items: center; 
-    gap: 15px; 
+    gap: 15px;
+    flex: 1;
 }
 
 .footer-logo { 
@@ -637,21 +644,31 @@ body {
 }
 
 .footer-brand-text span { 
+    display: block;
     font-size: 9px; 
     color: #888; 
     letter-spacing: 1.5px; 
+    text-transform: uppercase;
+    margin-top: 2px;
 }
 
 .footer-info { 
-    max-width: 400px; 
+    flex: 1.5;
     color: #aaa; 
     font-size: 14px; 
     line-height: 1.6; 
 }
 
+.footer-contact {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .footer-contact h4 { 
     font-size: 12px; 
-    color: #d4af37; 
+    color: #d4af37; /* Dourado Premium */
     letter-spacing: 1.5px; 
     margin-bottom: 10px; 
 }
@@ -659,20 +676,41 @@ body {
 .footer-contact a { 
     color: #ffffff; 
     text-decoration: none; 
-    font-size: 15px; 
-}
-
-.footer-contact p { 
-    color: #888; 
     font-size: 14px; 
-    margin-top: 5px; 
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s ease;
 }
 
+.footer-contact a:hover {
+    color: #d4af37;
+}
+
+/* Redes Sociais embaixo do e-mail de contato */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer-socials a {
+    color: #aaa;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-socials a:hover {
+    color: #d4af37;
+    transform: translateY(-2px);
+}
+
+/* LINHA DOS DIREITOS AUTORAIS: Totalmente limpa e empurrada para baixo */
 .footer-bottom {
     max-width: 1200px;
     margin: 25px auto 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Um texto na extrema esquerda, outro na direita */
+    align-items: center;
     font-size: 11px;
     color: #666;
     letter-spacing: 1px;
@@ -680,9 +718,16 @@ body {
     z-index: 2;
 }
 
+.copyright-tag {
+    font-family: 'Arial', sans-serif;
+}
+
 .edition-tag { 
     color: #aaa; 
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
 }
+
 
 /* ==========================================================================
    MEDIA QUERIES / RESPONSIVIDADE COMPACTADA
@@ -743,6 +788,10 @@ body {
         width: 100%; 
     }
     
+   .footer-top { 
+        flex-direction: column; 
+        gap: 30px; 
+    }
     .footer-bottom { 
         flex-direction: column; 
         gap: 15px; 
