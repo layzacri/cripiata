@@ -658,3 +658,12 @@ body {
 @media (max-width: 768px) {
     .blog-card { flex: 0 0 100%; }
 }
+
+.loading-text {
+    font-family: 'Arial', sans-serif;
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    padding: 40px 0;
+}
