@@ -1,17 +1,20 @@
- /* Reset básico e fontes */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Georgia', 'Times New Roman', serif; /* Mantendo a estética clássica da imagem */
-        }
+/* ==========================================================================
+   RESET BÁSICO E FONTES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', 'Times New Roman', serif; /* Estética clássica e institucional */
+}
 
-        body {
-            background-color: #f4f4f4;
-        }
+body {
+    background-color: #f4f4f4;
+    padding-top: 90px; /* Compensa a altura da navbar fixa para não cobrir o topo da Hero */
+}
 
-    /* ==========================================================================
-   Configuração da Faixa e Navbar Fixa (Sticky)
+/* ==========================================================================
+   CONFIGURAÇÃO DA FAIXA E NAVBAR FIXA (STICKY)
    ========================================================================== */
 .top-bar {
     height: 6px;
@@ -35,8 +38,6 @@
     padding: 15px 40px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.03);
-    
-    /* EFEITO DE ACOMPANHAR A TELA */
     position: fixed;
     top: 6px; /* Fica logo abaixo da faixa colorida */
     left: 0;
@@ -44,15 +45,17 @@
     z-index: 1000;
 }
 
-/* Compensar o topo da página para a Hero Section não ficar escondida atrás da navbar fixa */
-body {
-    padding-top: 90px; 
+.nav-brand { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    text-decoration: none; 
 }
 
-/* Configurações básicas de elementos */
-.nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-.brand-logo { width: 58px; height: auto; } /* Tamanho do logo ajustado para ficar proporcional à navbar */
-.mobile-only { display: none; }
+.brand-logo { 
+    width: 58px; 
+    height: auto; 
+}
 
 .brand-text h1 {
     font-size: 20px;
@@ -78,8 +81,17 @@ body {
 }
 
 /* Menu de links */
-.nav-menu { display: flex; list-style: none; gap: 30px; align-items: center; }
-.nav-item { position: relative; }
+.nav-menu { 
+    display: flex; 
+    list-style: none; 
+    gap: 30px; 
+    align-items: center; 
+}
+
+.nav-item { 
+    position: relative; 
+}
+
 .nav-link {
     text-decoration: none;
     color: #142947;
@@ -103,7 +115,11 @@ body {
     background: linear-gradient(to right, #0FC891 0%, #0FC891 33.33%, #C40026 33.33%, #C40026 66.66%, #0049A5 66.66%, #0049A5 100%);
 }
 
-.arrow { font-size: 9px; color: #666; margin-left: 2px; }
+.arrow { 
+    font-size: 9px; 
+    color: #666; 
+    margin-left: 2px; 
+}
 
 /* Submenu Dropdown Desktop */
 .dropdown-menu {
@@ -119,17 +135,24 @@ body {
     border-radius: 6px;
     border: 1px solid #e2e8f0;
 }
+
 .dropdown-menu li a {
     color: #142947;
     padding: 14px 20px;
     text-decoration: none;
     display: block;
-    font-size: 18px; /*Tamanho dos subs links */
+    font-size: 18px; 
     font-family: 'Arial', sans-serif;
     transition: background 0.2s;
 }
-.dropdown-menu li a:hover { background-color: #e6eef8; }
-.nav-item:hover .dropdown-menu { display: block; }
+
+.dropdown-menu li a:hover { 
+    background-color: #e6eef8; 
+}
+
+.nav-item:hover .dropdown-menu { 
+    display: block; 
+}
 
 .lang-switcher {
     border: 1px solid #888;
@@ -141,9 +164,14 @@ body {
     cursor: pointer;
     transition: all 0.3s;
 }
-.lang-switcher:hover { background-color: #142947; color: #fff; border-color: #142947; }
 
-/* Botão do menu móvel escondido no computador */
+.lang-switcher:hover { 
+    background-color: #142947; 
+    color: #fff; 
+    border-color: #142947; 
+}
+
+/* Botão do menu móvel */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -155,6 +183,7 @@ body {
     cursor: pointer;
     z-index: 1010;
 }
+
 .menu-toggle span {
     width: 100%;
     height: 3px;
@@ -162,74 +191,25 @@ body {
     transition: all 0.3s ease;
 }
 
+.desktop-only { display: flex; }
+.mobile-only { display: none; }
+
 /* ==========================================================================
-   RESPONSIVIDADE (Telas menores de 992px - Celular/Tablet)
-   ========================================================================== */
-@media (max-width: 992px) {
-    .navbar { padding: 15px 20px; }
-    .desktop-only { display: none; }
-    .mobile-only { display: block; margin-top: 15px; }
-    .menu-toggle { display: flex; } /* Mostra o hambúrguer */
-
-    /* Transforma o menu horizontal em uma cortina vertical puxada da direita */
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Começa escondido para fora da tela */
-        width: 280px;
-        height: 100vh;
-        background-color: #f4f7fc;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 100px 30px 30px 30px;
-        gap: 15px;
-        box-shadow: -4px 0px 15px rgba(0,0,0,0.1);
-        transition: right 0.4s ease;
-    }
-
-    /* Quando ativado pelo JavaScript, empurra o menu para dentro da tela */
-    .nav-menu.active {
-        right: 0;
-    }
-
-    /* Transformação do botão Hambúrguer em um "X" quando ativo */
-    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-    /* Ajustes dos submenus abertos direto no mobile */
-    .nav-item:hover .dropdown-menu { display: none; } /* Desativa o efeito de passar o mouse */
-    .dropdown-menu {
-        position: static;
-        display: block; /* No celular eles já ficam expandidos de forma simples */
-        box-shadow: none;
-        border: none;
-        padding-left: 20px;
-        background: transparent;
-    }
-    .dropdown-menu li a { padding: 8px 0; font-size: 14px; }
-}
-
-    /* ==========================================================================
-   Seção Hero (Baseada na imagem image_66bfe3.jpg)
+   SEÇÃO HERO
    ========================================================================== */
 .hero-section {
     position: relative;
-    min-height: calc(100vh - 100px); /* Ocupa quase a tela toda descontando a navbar */
+    min-height: calc(100vh - 100px); 
     display: flex;
     align-items: center;
     padding: 60px 10%;
-    
-    /* IMAGEM DE FUNDO: Substitua o link abaixo pela foto que você quiser */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
-                      url('painel.png'); /* Puxa a imagem do meu diretório */
-    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('painel.png'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efeito Parallax elegante ao rolar */
+    background-attachment: fixed; /* Efeito Parallax */
     color: #ffffff;
     overflow: hidden;
-     }
+}
 
 .hero-container {
     max-width: 800px;
@@ -239,16 +219,14 @@ body {
     gap: 25px;
 }
 
-/* Tagline superior (Data) */
 .hero-tagline {
     font-family: 'Arial', sans-serif;
     font-size: 12px;
     letter-spacing: 3px;
-    color: #d4af37; /* Tom dourado idêntico à imagem */
+    color: #d4af37; /* Tom dourado acadêmico */
     font-weight: bold;
 }
 
-/* Título Impactante */
 .hero-title {
     font-family: 'Georgia', serif;
     font-size: 56px;
@@ -257,14 +235,12 @@ body {
     letter-spacing: -1px;
 }
 
-/* Efeito itálico elegante no título */
 .hero-title em {
     font-style: italic;
     color: #d4af37;
     font-family: 'Georgia', serif;
 }
 
-/* Texto descritivo */
 .hero-description {
     font-family: 'Arial', sans-serif;
     font-size: 16px;
@@ -277,7 +253,6 @@ body {
     color: #ffffff;
 }
 
-/* Container de Botões */
 .hero-buttons {
     display: flex;
     gap: 20px;
@@ -285,7 +260,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* Botão Branco Preenchido */
 .btn-primary {
     display: inline-block;
     background-color: #ffffff;
@@ -305,7 +279,6 @@ body {
     color: #ffffff;
 }
 
-/* Botão Transparente com Borda */
 .btn-secondary {
     display: inline-block;
     background-color: transparent;
@@ -326,7 +299,6 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Rodapé com Informações */
 .hero-footer {
     display: flex;
     gap: 80px;
@@ -355,20 +327,14 @@ body {
     color: #ffffff;
 }
 
-/* Responsividade Básica para Telas Menores */
-@media (max-width: 768px) {
-    .hero-title { font-size: 38px; }
-    .hero-buttons { flex-direction: column; gap: 10px; }
-    .hero-footer { flex-direction: column; gap: 20px; }
-}
-
 /* ==========================================================================
-   1. Seção de Boas-Vindas (Estilo Bege)
+   1. SEÇÃO DE BOAS-VINDAS (ESTILO BEGE)
    ========================================================================== */
 .welcome-section {
-    background-color: #ededde; /* Tom bege idêntico ao print */
+    background-color: #ededde; 
     padding: 80px 10%;
 }
+
 .welcome-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -376,6 +342,7 @@ body {
     gap: 60px;
     align-items: center;
 }
+
 .welcome-text {
     flex: 1;
     font-family: 'Arial', sans-serif;
@@ -383,27 +350,38 @@ body {
     line-height: 1.7;
     font-size: 15px;
 }
+
 .welcome-text h2 {
     font-family: 'Georgia', serif;
     font-size: 26px;
-    color: #722f37; /* Vinho decorativo */
+    color: #950b26; /* Vinho institucional alinhado */
     margin-bottom: 20px;
     letter-spacing: 0.5px;
 }
+
 .welcome-text .highlight {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 15px;
     color: #111;
 }
-.welcome-text p { margin-bottom: 15px; text-align: justify; }
-.welcome-signature { margin-top: 30px; }
+
+.welcome-text p { 
+    margin-bottom: 15px; 
+    text-align: justify; 
+}
+
+.welcome-signature { 
+    margin-top: 30px; 
+}
+
 .welcome-image-wrapper {
     flex: 0 0 380px;
-    border: 1px solid #722f37; /* Borda fina cor de vinho do print */
+    border: 1px solid #950b26; 
     padding: 10px;
     background: transparent;
 }
+
 .welcome-photo {
     width: 100%;
     height: auto;
@@ -411,39 +389,78 @@ body {
 }
 
 /* ==========================================================================
-   2. Seção Carrossel do Blog
+   2. SEÇÃO NOVIDADES (SUBSTACK / BLOG)
    ========================================================================== */
 .blog-section {
     background-color: #ffffff;
     padding: 80px 10%;
 }
-.blog-header { text-align: center; margin-bottom: 50px; }
-.blog-header h2 { font-family: 'Georgia', serif; font-size: 32px; color: #1a365d; }
-.blog-header p { font-family: 'Arial', sans-serif; color: #666; margin-top: 10px; }
 
-.carousel-wrapper { overflow-x: auto; padding-bottom: 25px; }
-.carousel-track { display: flex; gap: 30px; max-width: 1200px; margin: 0 auto; }
+.blog-header { 
+    text-align: center; 
+    margin-bottom: 50px; 
+}
+
+.blog-header h2 { 
+    font-family: 'Georgia', serif; 
+    font-size: 32px; 
+    color: #950b26; /* Corrigido para manter harmonia com o Vinho */
+}
+
+.blog-header p { 
+    font-family: 'Arial', sans-serif; 
+    color: #666; 
+    margin-top: 10px; 
+}
+
+.carousel-wrapper { 
+    overflow-x: auto; 
+    padding-bottom: 25px; 
+    scrollbar-width: none; /* Oculta barra cinza no Firefox */
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+    display: none; /* Oculta barra cinza no Chrome, Safari e Edge */
+}
+
+.carousel-track { 
+    display: flex; 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
 .blog-card {
-    flex: 0 0 calc(33.333% - 20px);
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 4px;
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
-.blog-card:hover { transform: translateY(-5px); }
-.card-img { width: 100%; height: 300px; object-fit: cover; }
-.card-content { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-.card-date { font-size: 11px; font-weight: bold; color: #d4af37; letter-spacing: 1px; }
-.card-content h3 { font-family: 'Georgia', serif; font-size: 18px; color: #1a365d; line-height: 1.3; }
-.card-content p { font-size: 14px; color: #555; line-height: 1.5; }
-.card-link { font-size: 13px; font-weight: bold; text-decoration: none; color: #2a4b7c; margin-top: auto; }
+
+.blog-card:hover { 
+    transform: translateY(-5px); 
+}
+
+.loading-text {
+    font-family: 'Arial', sans-serif;
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    padding: 40px 0;
+}
+
+#substack-feed-embed {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 /* ==========================================================================
-   3. Seção Conectar / Formulário Reajustada (Estilo Vinho Premium)
+   3. SEÇÃO CONECTAR / FORMULÁRIO (ESTILO VINHO PREMIUM)
    ========================================================================== */
 .connect-section {
-    background-color: #950b26; /* Fundo vinho sutil */
+    background-color: #950b26; 
     color: #ffffff;
     padding: 80px 10%;
 }
@@ -464,7 +481,6 @@ body {
     flex: 1;
 }
 
-/* Títulos das colunas */
 .connect-column h3 {
     font-family: 'Georgia', serif;
     font-size: 20px;
@@ -473,7 +489,6 @@ body {
     font-weight: normal;
 }
 
-/* Linha decorativa fina abaixo dos títulos */
 .line-decor {
     border: none;
     height: 1px;
@@ -481,14 +496,12 @@ body {
     margin: 15px 0 30px 0;
 }
 
-/* Divisória Vertical entre as duas seções principais */
 .vertical-divider {
     width: 1px;
     background-color: rgba(255, 255, 255, 0.15);
-    align-self: stretch; /* Faz a linha esticar verticalmente até o final do bloco */
+    align-self: stretch; 
 }
 
-/* Blocos individuais do Saiba Mais */
 .link-item {
     margin-bottom: 35px;
 }
@@ -502,7 +515,6 @@ body {
     max-width: 90%;
 }
 
-/* Botões Vazados (Outline) Estilo Yale/Harvard */
 .outline-btn {
     display: inline-block;
     border: 1px solid rgba(255, 255, 255, 0.4);
@@ -519,11 +531,10 @@ body {
 
 .outline-btn:hover {
     background: #ffffff;
-    color: #802828;
+    color: #950b26; /* Corrigido para bater com o fundo exato */
     border-color: #ffffff;
 }
 
-/* Configuração do Bloco de Formulário */
 .form-subtitle {
     font-family: 'Arial', sans-serif;
     font-size: 14px;
@@ -552,7 +563,6 @@ body {
     color: #999;
 }
 
-/* Botão de Envio do Formulário */
 .form-submit-btn {
     background: transparent;
     border: 1px solid #ffffff;
@@ -568,51 +578,33 @@ body {
 
 .form-submit-btn:hover {
     background: #ffffff;
-    color: #802828;
+    color: #950b26;
 }
 
 /* ==========================================================================
-   Responsividade para o Grid do Saiba Mais (Tablet e Celular)
-   ========================================================================== */
-@media (max-width: 992px) {
-    .connect-content-grid {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .vertical-divider {
-        display: none; /* Esconde a linha vertical no celular */
-    }
-    
-    .link-item p {
-        max-width: 100%;
-    }
-}
-
-/* ==========================================================================
-   4. Footer Premium com Marca d'Água Gigante ao Fundo
+   4. FOOTER PREMIUM COM MARCA D'ÁGUA
    ========================================================================== */
 .main-footer {
-    background-color: #0b0c10; /* Preto escuro profundo */
+    background-color: #0b0c10; 
     color: #ffffff;
     padding: 60px 10% 30px 10%;
     position: relative;
     overflow: hidden;
 }
 
-/* MARCA D'ÁGUA EM BACKGROUND: Carrega a sua imagem_672f87.png centralizada e gigante */
+/* Injeção sutil e gigante da sua logo no fundo */
 .main-footer::before {
     content: "";
     position: absolute;
     top: -10%;
     right: -5%;
-    width: 500px;   /* Tamanho grande */
+    width: 500px;   
     height: 500px;
-    background-image: url('logobranca.png'); /* Puxa a imagem do seu diretório */
+    background-image: url('logobranca.png'); 
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.10;  /* Deixa extremamente sutil e transparente, sem atrapalhar a leitura */
-    pointer-events: none; /* Garante que não atrapalhe cliques */
+    opacity: 0.10;  
+    pointer-events: none; 
 }
 
 .footer-top {
@@ -626,14 +618,55 @@ body {
     position: relative;
     z-index: 2;
 }
-.footer-brand { display: flex; align-items: center; gap: 15px; }
-.footer-logo { width: 58px; height: auto; }
-.footer-brand-text h2 { font-family: 'Georgia', serif; font-size: 22px; letter-spacing: 0.5px; }
-.footer-brand-text span { font-size: 9px; color: #888; letter-spacing: 1.5px; }
-.footer-info { max-width: 400px; color: #aaa; font-size: 14px; line-height: 1.6; }
-.footer-contact h4 { font-size: 12px; color: #d4af37; letter-spacing: 1.5px; margin-bottom: 10px; }
-.footer-contact a { color: #ffffff; text-decoration: none; font-size: 15px; }
-.footer-contact p { color: #888; font-size: 14px; margin-top: 5px; }
+
+.footer-brand { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.footer-logo { 
+    width: 58px; 
+    height: auto; 
+}
+
+.footer-brand-text h2 { 
+    font-family: 'Georgia', serif; 
+    font-size: 22px; 
+    letter-spacing: 0.5px; 
+}
+
+.footer-brand-text span { 
+    font-size: 9px; 
+    color: #888; 
+    letter-spacing: 1.5px; 
+}
+
+.footer-info { 
+    max-width: 400px; 
+    color: #aaa; 
+    font-size: 14px; 
+    line-height: 1.6; 
+}
+
+.footer-contact h4 { 
+    font-size: 12px; 
+    color: #d4af37; 
+    letter-spacing: 1.5px; 
+    margin-bottom: 10px; 
+}
+
+.footer-contact a { 
+    color: #ffffff; 
+    text-decoration: none; 
+    font-size: 15px; 
+}
+
+.footer-contact p { 
+    color: #888; 
+    font-size: 14px; 
+    margin-top: 5px; 
+}
 
 .footer-bottom {
     max-width: 1200px;
@@ -646,49 +679,84 @@ body {
     position: relative;
     z-index: 2;
 }
-.edition-tag { color: #aaa; }
 
-/* Responsividade Básica para Telas Menores */
+.edition-tag { 
+    color: #aaa; 
+}
+
+/* ==========================================================================
+   MEDIA QUERIES / RESPONSIVIDADE COMPACTADA
+   ========================================================================== */
 @media (max-width: 992px) {
-    .welcome-container, .connect-container, .footer-top { flex-direction: column; gap: 40px; }
-    .blog-card { flex: 0 0 calc(50% - 15px); }
-    .welcome-image-wrapper { flex: 1; width: 100%; }
-    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+    .navbar { padding: 15px 20px; }
+    .desktop-only { display: none; }
+    .mobile-only { display: block; margin-top: 15px; }
+    .menu-toggle { display: flex; } 
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 280px;
+        height: 100vh;
+        background-color: #f4f7fc;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 100px 30px 30px 30px;
+        gap: 15px;
+        box-shadow: -4px 0px 15px rgba(0,0,0,0.1);
+        transition: right 0.4s ease;
+    }
+
+    .nav-menu.active { right: 0; }
+
+    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    .nav-item:hover .dropdown-menu { display: none; } 
+    .dropdown-menu {
+        position: static;
+        display: block; 
+        box-shadow: none;
+        border: none;
+        padding-left: 20px;
+        background: transparent;
+    }
+    .dropdown-menu li a { padding: 8px 0; font-size: 14px; }
+
+    .welcome-container, .connect-container, .connect-content-grid, .footer-top { 
+        flex-direction: column; 
+        gap: 40px; 
+    }
+    
+    .vertical-divider { 
+        display: none; 
+    }
+    
+    .blog-card { 
+        flex: 0 0 calc(50% - 15px); 
+    }
+    
+    .welcome-image-wrapper { 
+        flex: 1; 
+        width: 100%; 
+    }
+    
+    .footer-bottom { 
+        flex-direction: column; 
+        gap: 15px; 
+        text-align: center; 
+    }
+    
+    .link-item p { 
+        max-width: 100%; 
+    }
 }
+
 @media (max-width: 768px) {
+    .hero-title { font-size: 38px; }
+    .hero-buttons { flex-direction: column; gap: 10px; }
+    .hero-footer { flex-direction: column; gap: 20px; }
     .blog-card { flex: 0 0 100%; }
-}
-
-.loading-text {
-    font-family: 'Arial', sans-serif;
-    color: #666;
-    font-size: 14px;
-    text-align: center;
-    width: 100%;
-    padding: 40px 0;
-}
-
-.blog-section {
-    background-color: #ffffff;
-    padding: 80px 10%;
-}
-.blog-header { 
-    text-align: center; 
-    margin-bottom: 50px; 
-}
-.blog-header h2 { 
-    font-family: 'Georgia', serif; 
-    font-size: 32px; 
-    color: #0FC891; 
-}
-.blog-header p { 
-    font-family: 'Arial', sans-serif; 
-    color: #666; 
-    margin-top: 10px; 
-}
-
-/* Garante que a grade oficial do Substack respeite o tamanho máximo do seu site */
-#substack-feed-embed {
-    max-width: 1200px;
-    margin: 0 auto;
 }
