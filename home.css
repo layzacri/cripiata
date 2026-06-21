@@ -431,8 +431,8 @@ body {
 }
 
 .blog-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #ecf3fa;
+    border: 1px solid #c8c9cc;
     border-radius: 4px;
     overflow: hidden;
     transition: transform 0.3s ease;
