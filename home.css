@@ -667,3 +667,28 @@ body {
     width: 100%;
     padding: 40px 0;
 }
+
+.blog-section {
+    background-color: #ffffff;
+    padding: 80px 10%;
+}
+.blog-header { 
+    text-align: center; 
+    margin-bottom: 50px; 
+}
+.blog-header h2 { 
+    font-family: 'Georgia', serif; 
+    font-size: 32px; 
+    color: #802828; 
+}
+.blog-header p { 
+    font-family: 'Arial', sans-serif; 
+    color: #666; 
+    margin-top: 10px; 
+}
+
+/* Garante que a grade oficial do Substack respeite o tamanho máximo do seu site */
+#substack-feed-embed {
+    max-width: 1200px;
+    margin: 0 auto;
+}
