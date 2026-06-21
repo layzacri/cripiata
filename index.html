@@ -55,11 +55,11 @@
         </li>
         
         <li class="nav-item mobile-only">
-            <button class="lang-switcher">BR PT</button>
+            <button class="lang-switcher">Inscrições</button>
         </li>
     </ul>
 
-    <button class="lang-switcher desktop-only">BR PT</button>
+    <button class="lang-switcher desktop-only">Inscrições</button>
 
 </nav>
 
@@ -79,6 +79,74 @@
             navMenu.classList.remove('active');
         });
     });
+
+    
+        
+        // CONFIGURAÇÃO DO SUBSTACK (Sempre use tudo em minúsculo aqui)
+const SUBSTACK_USER = 'vozeverso'; 
+const RSS_URL = `https://${SUBSTACK_USER}.substack.com/feed`;
+
+// Usamos a API do rss2json com uma chave pública de fallback caso a genérica limite requisições
+const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+
+async function carregarSubstack() {
+    const track = document.getElementById('substack-feed');
+    if (!track) return; // Evita erros caso o elemento não exista na página atual
+    
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        
+        if (data.status !== 'ok') {
+            throw new Error('Falha ao carregar o feed');
+        }
+        
+        track.innerHTML = '';
+        const posts = data.items.slice(0, 3);
+        
+        posts.forEach(post => {
+            const dataFormatada = new Date(post.pubDate).toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
+            }).toUpperCase();
+            
+            // AJUSTE NA IMAGEM: O Substack às vezes guarda a imagem principal no 'enclosure' ou no 'content'
+            let imagemPost = post.thumbnail || '';
+            if (!imagemPost && post.enclosure && post.enclosure.link) {
+                imagemPost = post.enclosure.link;
+            }
+            if (!imagemPost) {
+                imagemPost = 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600'; // Imagem padrão elegante
+            }
+            
+            // Limpa as tags HTML e limita o resumo do texto
+            const resumoLimpo = post.description ? post.description.replace(/<[^>]*>/g, '').substring(0, 120) + '...' : '';
+
+            const cardHTML = `
+                <article class="blog-card">
+                    <img src="${imagemPost}" alt="${post.title}" class="card-img" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="card-content">
+                        <span class="card-date">${dataFormatada}</span>
+                        <h3>${post.title}</h3>
+                        <p>${resumoLimpo}</p>
+                        <a href="${post.link}" target="_blank" class="card-link">Ler no Substack —</a>
+                    </div>
+                </article>
+            `;
+            
+            track.innerHTML += cardHTML;
+        });
+        
+    } catch (error) {
+        console.error('Erro ao buscar posts do Substack:', error);
+        track.innerHTML = '<p class="loading-text">Não foi possível carregar as novidades no momento. Visite nosso Substack diretamente!</p>';
+    }
+}
+
+// Executa a função assim que a página carregar
+document.addEventListener('DOMContentLoaded', carregarSubstack);
+
 </script>
 
 <!-- SEÇÃO HERO PRINCIPAL -->
@@ -149,53 +217,17 @@
     </div>
 </section>
 
-<!-- 2. SEÇÃO CARROSSEL DE POSTS (BLOG) -->
+<!-- 2. SEÇÃO CARROSSEL DE POSTS (AUTOMÁTICO VIA SUBSTACK) -->
 <section class="blog-section">
     <div class="blog-header">
         <h2>ÚLTIMAS NOVIDADES</h2>
-        <p>Fique por dentro das notícias, artigos e avisos do nosso clube</p>
+        <p>Acompanhe as publicações oficiais do nosso clube direto do Substack</p>
     </div>
     
     <div class="carousel-wrapper">
-        <div class="carousel-track">
-            
-            <!-- Post 1 -->
-            <article class="blog-card">
-                <img src="crivoltou.png" alt="Post 1" class="card-img">
-                <div class="card-content">
-                    <span class="card-date">24 FEV, 2026</span>
-                    <h3>O CRI ESTÁ DE VOLTA!</h3>
-                    <p>Após o período de férias e a MiniMUN final de 2025, retornamos com tudo e convidamos 
-                        você a entrar nesse novo passo da nossa história 
-                        enquanto Clube de Relações Internacionais do SESI Djalma Pessoa....</p>
-                    <a href="#post1" class="card-link">Ler mais →</a>
-                </div>
-            </article>
-
-            <!-- Post 2 -->
-            <article class="blog-card">
-                <img src="Post Anuncio (1) (1).png" alt="Post 2" class="card-img">
-                <div class="card-content">
-                    <span class="card-date">02 JUN, 2026</span>
-                    <h3>I MiniMundo Sesi - Soy Loco por Ti, America</h3>
-                    <p>O continente americano se prepara para receber vozes que irão debater, 
-                        negociar e construir soluções para os desafios do presente e do futuro...</p>
-                    <a href="#post2" class="card-link">Ler mais →</a>
-                </div>
-            </article>
-
-            <!-- Post 3 -->
-            <article class="blog-card">
-                <img src="agenciadecomunic.png" alt="Post 3" class="card-img">
-                <div class="card-content">
-                    <span class="card-date">28 MAI, 2026</span>
-                    <h3>Como é uma Agência de Comunicação?</h3>
-                    <p>Em uma simulação, tudo acontece em tempo real e cada decisão, 
-                        debate ou crise precisa ser comunicada com precisão...</p>
-                    <a href="#post3" class="card-link">Ler mais →</a>
-                </div>
-            </article>
-
+        <!-- O JavaScript vai injetar os posts automaticamente aqui dentro -->
+        <div class="carousel-track" id="substack-feed">
+            <p class="loading-text">Carregando últimas publicações...</p>
         </div>
     </div>
 </section>
