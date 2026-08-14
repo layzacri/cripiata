@@ -167,7 +167,7 @@
 
         /* SLIDE HERO COM IMAGEM DE FUNDO */
         .slide-hero {
-            background-image: linear-gradient(rgba(15, 20, 28, 0.75), rgba(15, 20, 28, 0.85)), url('painel.JPG');
+            background-image: linear-gradient(rgba(15, 20, 28, 0.75), rgba(15, 20, 28, 0.85)), url('painel.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -268,45 +268,59 @@
 
 <body>
 
+<body>
+
+    <!-- Faixa colorida superior -->
     <div class="top-bar">
-        <div class="bar-green"></div>
-        <div class="bar-yellow"></div>
-        <div class="bar-blue"></div>
-        <div class="bar-red"></div>
+    <div class="bar-green"></div>
+    <div class="bar-yellow"></div>
+    <div class="bar-blue"></div>
+    <div class="bar-red"></div>
+</div>
+
+<nav class="navbar">
+    
+    <a href="#" class="nav-brand">
+        <img src="logoprincipal.png" alt="Logo do Clube" class="brand-logo">
+        <div class="brand-text">
+            <h1>Clube de Relações Internacionais</h1>
+            <span>Escola Sesi Djalma Pessoa</span>
+        </div>
+    </a>
+
+    <button class="menu-toggle" aria-label="Abrir Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="nav-menu">
+        <li class="nav-item">
+            <a href="#" class="nav-link">O Clube <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#historia">Secretariado</a></li>
+                <li><a href="#diretoria">Historia</a></li>
+                <li><a href="#estatuto">Nossa Missão</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">Funcionamento <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#atividades">Atividades</a></li>
+                <li><a href="#espacos">Nossos Espaços</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#contato" class="nav-link">Contato</a>
+        </li>
+        
+        <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
+        <a href="estratificacao.html" target="_blank" class="btn-inscricao">AULA</a>
     </div>
+</nav>
 
-    <nav class="navbar">
-        <a href="#" class="nav-brand">
-            <img src="logoprincipal.png" alt="Logo" class="brand-logo" onerror="this.style.display='none'">
-            <div class="brand-text">
-                <h1>Clube de Relações Internacionais</h1>
-                <span>Escola Sesi Djalma Pessoa</span>
-            </div>
-        </a>
-
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="#" class="nav-link">O Clube <span class="arrow">▼</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="historico.html">Secretariado</a></li>
-                    <li><a href="#historia">História</a></li>
-                    <li><a href="#conceito">Nossa Missão</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Funcionamento <span class="arrow">▼</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#poder">Atividades</a></li>
-                    <li><a href="#geopolitica">Nossos Espaços</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="#contato" class="nav-link">Contato</a>
-            </li>
-        </ul>
-
-        <a href="estratificação.html" target="_blank" class="btn-inscricao">AULA</a>
-    </nav>
 
     <section class="slide slide-hero" id="inicio">
         <div class="inner reveal">
