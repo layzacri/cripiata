@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estratificação Social — Clube de Relações Internacionais</title>
-    <link rel="icon" href="logoprincipal.png" type="image/png">
+    <link rel="icon" href="logobranca.png" type="image/png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,11 +64,11 @@
         .bar-red    { flex: 1; background-color: #161414; }
 
         .navbar {
-            background: linear-gradient(135deg, #fbeeee 0%, #ffffff 50%, #d5e3f3 100%);
+            background: linear-gradient(90deg, #fceeed 0%, #f7f9fc 60%, #e2ecf7 100%);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 6vw;
+            padding: 8px 4vw;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
             position: fixed;
@@ -76,25 +76,33 @@
             left: 0;
             right: 0;
             z-index: 1000;
+            height: 64px;
         }
 
-        .nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .brand-logo { width: 45px; height: auto; }
-        .brand-text h1 { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--brand-navy); }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand-logo { width: 42px; height: auto; }
+        .brand-text h1 { 
+            font-family: 'Cinzel', serif; 
+            font-size: 18px; 
+            font-weight: 600; 
+            color: var(--brand-navy);
+            letter-spacing: 0.5px;
+        }
         .brand-text span {
             display: inline-block;
             font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            font-weight: bold;
+            font-weight: 700;
             color: var(--brand-navy);
             border: 1px solid var(--brand-navy);
-            background-color: rgba(20, 41, 71, 0.05);
-            padding: 2px 8px;
+            background-color: transparent;
+            padding: 2px 12px;
             border-radius: 12px;
+            margin-top: 2px;
         }
 
-        .nav-menu { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-menu { display: flex; list-style: none; gap: 28px; align-items: center; }
         .nav-item { position: relative; }
         .nav-link {
             text-decoration: none;
@@ -106,11 +114,23 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 10px 0;
+            padding: 8px 0;
             transition: color 0.3s;
         }
+
+        /* Detalhe Tricolor dos links do menu */
+        .nav-link::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 4px;
+            background: linear-gradient(to right, #0FC891 33%, #C40026 33%, #C40026 66%, #0049A5 66%);
+            border-radius: 1px;
+            margin-right: 4px;
+        }
+
         .nav-link:hover { color: var(--brand-wine); }
-        .arrow { font-size: 9px; }
+        .arrow { font-size: 8px; color: #666; margin-left: 2px; }
 
         /* Dropdown */
         .dropdown-menu {
@@ -138,18 +158,21 @@
         .nav-item:hover .dropdown-menu { display: block; }
 
         .btn-inscricao {
-            border: 1.5px solid var(--brand-wine);
-            color: var(--brand-wine);
-            padding: 8px 16px;
-            font-size: 11px;
-            font-weight: bold;
+            border: 1.5px solid #8B1E2C;
+            color: #8B1E2C;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 6px 18px;
+            font-size: 12px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
             border-radius: 4px;
             transition: all 0.3s ease;
         }
-        .btn-inscricao:hover { background-color: var(--brand-wine); color: #ffffff; }
+        .btn-inscricao:hover { background-color: #8B1E2C; color: #ffffff; }
+
+        .menu-toggle { display: none; }
 
         /* ==========================================================================
            3. SLIDES & APRESENTAÇÃO
@@ -165,12 +188,12 @@
         .slide:nth-of-type(even) { background: var(--paper-dark); }
         .slide:nth-of-type(odd) { background: var(--paper-light); }
 
-        /* SLIDE HERO COM IMAGEM DE FUNDO */
+        /* SLIDE HERO COM IMAGEM DE FUNDO CORRIGIDA */
         .slide-hero {
             background-image: linear-gradient(rgba(15, 20, 28, 0.75), rgba(15, 20, 28, 0.85)), url('painel.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #ffffff !important;
         }
         .slide-hero .kicker { color: var(--brand-gold); }
@@ -268,59 +291,49 @@
 
 <body>
 
-<body>
-
-    <!-- Faixa colorida superior -->
     <div class="top-bar">
-    <div class="bar-green"></div>
-    <div class="bar-yellow"></div>
-    <div class="bar-blue"></div>
-    <div class="bar-red"></div>
-</div>
+        <div class="bar-green"></div>
+        <div class="bar-yellow"></div>
+        <div class="bar-blue"></div>
+        <div class="bar-red"></div>
+    </div>
 
-<nav class="navbar">
-    
-    <a href="#" class="nav-brand">
-        <img src="logoprincipal.png" alt="Logo do Clube" class="brand-logo">
-        <div class="brand-text">
-            <h1>Clube de Relações Internacionais</h1>
-            <span>Escola Sesi Djalma Pessoa</span>
-        </div>
-    </a>
+    <nav class="navbar">
+        <a href="#" class="nav-brand">
+            <img src="logoprincipal.png" alt="Logo do Clube" class="brand-logo">
+            <div class="brand-text">
+                <h1>Clube de Relações Internacionais</h1>
+                <span>Escola Sesi Djalma Pessoa</span>
+            </div>
+        </a>
 
-    <button class="menu-toggle" aria-label="Abrir Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link">O Clube <span class="arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#historia">Secretariado</a></li>
+                    <li><a href="#diretoria">História</a></li>
+                    <li><a href="#estatuto">Nossa Missão</a></li>
+                </ul>
+            </li>
 
-    <ul class="nav-menu">
-        <li class="nav-item">
-            <a href="#" class="nav-link">O Clube <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#historia">Secretariado</a></li>
-                <li><a href="#diretoria">Historia</a></li>
-                <li><a href="#estatuto">Nossa Missão</a></li>
-            </ul>
-        </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Funcionamento <span class="arrow">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#atividades">Atividades</a></li>
+                    <li><a href="#espacos">Nossos Espaços</a></li>
+                </ul>
+            </li>
 
-        <li class="nav-item">
-            <a href="#" class="nav-link">Funcionamento <span class="arrow">▼</span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#atividades">Atividades</a></li>
-                <li><a href="#espacos">Nossos Espaços</a></li>
-            </ul>
-        </li>
-
-        <li class="nav-item">
-            <a href="#contato" class="nav-link">Contato</a>
-        </li>
+            <li class="nav-item">
+                <a href="#contato" class="nav-link">Contato</a>
+            </li>
+        </ul>
         
         <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
-        <a href="estratificacao.html" target="_blank" class="btn-inscricao">AULA</a>
-    </div>
-</nav>
-
+            <a href="estratificacao.html" target="_blank" class="btn-inscricao">AULA</a>
+        </div>
+    </nav>
 
     <section class="slide slide-hero" id="inicio">
         <div class="inner reveal">
